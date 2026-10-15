@@ -1,0 +1,8 @@
+# Copy this file to terraform.tfvars and change values if needed.
+# These are NOT secrets. AWS credentials must NEVER go here --
+# set them with `aws configure` or the AWS_ACCESS_KEY_ID /
+# AWS_SECRET_ACCESS_KEY environment variables instead.
+
+aws_region   = "ap-south-1"
+cluster_name = "tutorslot-eks"
+environment  = "dev"

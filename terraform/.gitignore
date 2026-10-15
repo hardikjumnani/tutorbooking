@@ -1,0 +1,9 @@
+# Terraform working files and state (never commit these)
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Variable files may hold environment-specific values; keep only the example
+*.tfvars
+!*.tfvars.example

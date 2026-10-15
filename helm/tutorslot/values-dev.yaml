@@ -1,0 +1,7 @@
+# Dev overlay: enable the ingress at a local hostname, keep 2 replicas and HPA.
+replicaCount: 2
+ingress:
+  enabled: true
+  host: tutorslot.local
+hpa:
+  enabled: true

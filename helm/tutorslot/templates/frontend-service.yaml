@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  labels:
+    app: tutorslot-frontend
+spec:
+  type: ClusterIP
+  selector:
+    app: tutorslot-frontend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080

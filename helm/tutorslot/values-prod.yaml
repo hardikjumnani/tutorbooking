@@ -1,0 +1,9 @@
+# Prod overlay: more replicas, a real hostname, wider autoscaling range.
+replicaCount: 3
+ingress:
+  enabled: true
+  host: tutorslot.example.com
+hpa:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 10

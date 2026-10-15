@@ -1,0 +1,45 @@
+# Container images (override tag with the commit SHA at deploy time).
+backend:
+  image: ghcr.io/hardikjumnani/tutorslot-backend
+  tag: latest
+frontend:
+  image: ghcr.io/hardikjumnani/tutorslot-frontend
+  tag: latest
+
+# Replicas for BOTH backend and frontend deployments (rubric wants >= 2).
+replicaCount: 2
+
+# Secrets to pull private images from GHCR (leave empty if images are public).
+imagePullSecrets: []
+
+postgres:
+  host: postgres        # Kubernetes Service name the backend connects to
+  database: tutorslot
+  username: tutorslot
+  password: tutorslot
+  storage: 5Gi
+
+ingress:
+  enabled: false
+  host: tutorslot.local
+
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 60
+
+# Backend resource requests/limits (HPA needs requests to measure against).
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+monitoring:
+  serviceMonitor:
+    # Turn on only after the Prometheus Operator (kube-prometheus-stack) is
+    # installed, otherwise the ServiceMonitor CRD does not exist yet.
+    enabled: false

@@ -1,0 +1,16 @@
+# Values for the kube-prometheus-stack Helm chart
+# (Prometheus Operator + Prometheus + Grafana + default dashboards).
+
+grafana:
+  enabled: true
+  adminPassword: tutorslot-admin   # demo only - change for real use
+  service:
+    type: ClusterIP
+
+prometheus:
+  prometheusSpec:
+    # Discover ServiceMonitors in any namespace, not only ones created by this
+    # Helm release. This lets Prometheus pick up our app's ServiceMonitor.
+    serviceMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelector: {}
+    serviceMonitorNamespaceSelector: {}

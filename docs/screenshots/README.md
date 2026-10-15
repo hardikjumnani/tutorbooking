@@ -14,14 +14,12 @@ Captured from the real running app, test run, Docker stack, and pipeline.
 | `m4_nonroot.png` | M4 | Containers run non-root (backend uid 10001, frontend uid 101) |
 | `m4_images.png` | M4 | Built backend and frontend images |
 | `m5_pipeline_run.png` | M5 | GitHub Actions run: green, `test` + `build-scan-push` passed |
+| `m5_ghcr_packages.png` | M5 | GHCR packages list: `tutorslot-backend` and `tutorslot-frontend` |
+| `m5_ghcr_backend_tags.png` | M5 | Package page with the commit-SHA image tags and pull command |
 | `m6_trivy_scan.png` | M6 | Trivy scan: 0 HIGH/CRITICAL on both images |
 
 ## Still to capture
 
-- **M5 — GHCR packages page** (private by default): open
-  https://github.com/hardikjumnani?tab=packages and screenshot the two
-  packages (`tutorslot-backend`, `tutorslot-frontend`) with their SHA tags.
-  (Tip: make the packages public first to show them easily.)
 - **M7 / M8 / M9 — cloud** (during the AWS session; see [`../../DEPLOY.md`](../../DEPLOY.md)):
   - M7: `terraform plan`, AWS console (VPC + EKS), `terraform destroy`
   - M8: `kubectl get pods/svc`, `helm list`, app through the Ingress

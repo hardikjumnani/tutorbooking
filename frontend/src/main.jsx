@@ -95,7 +95,7 @@ function App() {
           <span className="brand-mark">TS</span>
           <div>
             <b>TutorSlot</b>
-            <small>Tutoring appointment booking</small>
+            <small>Tutoring appointment booking · v1.1</small>
           </div>
         </div>
         <button className="primary" onClick={() => setShowForm(true)}>＋ Book appointment</button>

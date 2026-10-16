@@ -29,16 +29,23 @@ Ingress, HPA, and monitoring config used for the AWS deployment).
 | `m8_api_via_ingress.png` | M8 | `/api` route answered by the backend through the Ingress |
 | `m9_metrics_endpoint.png` | M9 | `curl /metrics`: Prometheus-format output from the backend |
 | `m9_monitoring_pods.png` | M9 | Prometheus + Grafana pods Running |
-| `m9_prometheus_targets.png` | M9 | Prometheus Targets: `tutorslot-backend` scrape target UP |
+| `m9_prometheus_targets.png` | M9 | Prometheus Targets: `tutorslot-backend` scrape target 2/2 UP |
 | `m9_grafana_dashboard.png` | M9 | Grafana panels with live request rate and p95 latency |
+| `m10_before.png` | M10 | Live demo, before: Helm revision 2, app 1.0.0, image tag `d514cc6` |
+| `m10_pipeline_run.png` | M10 | Live demo: the v1.1 commit's pipeline run, green |
+| `m10_after.png` | M10 | Live demo, after: `helm upgrade` → revision 3, app 1.1.0, new image tag, pods rolled |
+| `m10_app_after_update.png` | M10 | Live demo: the running app (via Ingress) now shows v1.1 |
 
 ## Still to capture
 
 - **M7 — Terraform on AWS:** `terraform plan` output, AWS console (VPC + EKS),
   `terraform destroy` output. Needs an AWS account — see [`../../DEPLOY.md`](../../DEPLOY.md).
 
-## Note on M8 / M9
+## Notes
 
-These were captured on a local Kubernetes cluster (`kind`), deploying the same
-`helm/tutorslot` chart with the same values, Ingress controller, Metrics Server,
-and `kube-prometheus-stack` monitoring that the AWS runbook uses.
+- **M8 / M9** were captured on a local Kubernetes cluster (`kind`), deploying the same
+  `helm/tutorslot` chart with the same values, Ingress controller, Metrics Server,
+  and `kube-prometheus-stack` monitoring that the AWS runbook uses.
+- **M10** live demo flow: commit `0f7d722` (bump to v1.1) → GitHub Actions run green
+  → `helm upgrade` to the new SHA-tagged images → rolling update → app shows v1.1.
+  It can be repeated live on request.

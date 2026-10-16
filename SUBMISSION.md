@@ -14,15 +14,16 @@ Screenshots marked **[cloud]** need the AWS deploy session (see [DEPLOY.md](DEPL
 | **M5** CI/CD (15) | `.github/workflows/ci-cd.yml` | Green pipeline run URL + GHCR packages page (SHA tags) |
 | **M6** Trivy (5) | Trivy steps in the workflow | Trivy step output in a run + the 2–3 sentence note below |
 | **M7** Terraform (15) | `terraform/` | **[cloud]** `terraform plan` output + AWS console (VPC + EKS) + `terraform destroy` output |
-| **M8** K8s + Helm (15) | `helm/tutorslot/`, `k8s/namespace.yaml` | **[cloud]** `kubectl get pods/svc`, `helm list`, app via Ingress |
-| **M9** Monitoring (10) | `monitoring/` | **[cloud]** `/metrics` output, Prometheus Targets UP, Grafana panel |
+| **M8** K8s + Helm (15) | `helm/tutorslot/`, `k8s/namespace.yaml` | `kubectl get pods/svc`, `helm list`, app via Ingress — captured on a local `kind` cluster (`docs/screenshots/m8_*`) |
+| **M9** Monitoring (10) | `monitoring/` | `/metrics` output, Prometheus Targets UP, Grafana panel — captured on the same cluster (`docs/screenshots/m9_*`) |
 | **M10** Docs + demo (5) | `README.md`, this file | README (done) + live demo: push a change, watch the pipeline, see the deploy update |
 
 ## Status right now
 
-- **Done & verified:** M1, M2, M3, M4, M5, M6 (pipeline is green; CVEs found and fixed).
-- **Code complete, needs the cloud session:** M7, M8, M9.
-- **M10:** README is done; the live demo is part of the cloud session.
+- **Done & verified:** M1–M6 (pipeline green; CVEs found and fixed), plus **M8 and M9**,
+  deployed and monitored on a local Kubernetes cluster (`kind`) with the same chart and config.
+- **Needs AWS:** M7 (Terraform apply on AWS). The code is complete and valid; see `DEPLOY.md`.
+- **M10:** README is done; the live demo can be shown locally (push → pipeline → `helm upgrade`).
 
 ## Module 6 — Trivy explanation (ready to paste)
 

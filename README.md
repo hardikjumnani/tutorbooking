@@ -58,6 +58,7 @@ tutorslot/
 ├── k8s/                # namespace manifest
 ├── monitoring/         # Prometheus + Grafana config and dashboard
 ├── scripts/            # load-test helper (for the HPA demo)
+├── docs/               # evidence screenshots and the walkthrough video
 ├── DEPLOY.md           # step-by-step AWS deploy runbook
 └── SUBMISSION.md       # how each grading module maps to evidence
 ```

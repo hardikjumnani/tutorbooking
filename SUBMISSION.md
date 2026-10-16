@@ -16,14 +16,14 @@ Screenshots marked **[cloud]** need the AWS deploy session (see [DEPLOY.md](DEPL
 | **M7** Terraform (15) | `terraform/` | **[cloud]** `terraform plan` output + AWS console (VPC + EKS) + `terraform destroy` output |
 | **M8** K8s + Helm (15) | `helm/tutorslot/`, `k8s/namespace.yaml` | `kubectl get pods/svc`, `helm list`, app via Ingress — captured on a local `kind` cluster (`docs/screenshots/m8_*`) |
 | **M9** Monitoring (10) | `monitoring/` | `/metrics` output, Prometheus Targets UP, Grafana panel — captured on the same cluster (`docs/screenshots/m9_*`) |
-| **M10** Docs + demo (5) | `README.md`, this file | README (done) + live demo recorded: v1.1 commit → green pipeline → `helm upgrade` to the new image → running app shows v1.1 (`docs/screenshots/m10_*`) |
+| **M10** Docs + demo (5) | `README.md`, this file | README (done) + live demo recorded: v1.1 commit → green pipeline → `helm upgrade` to the new image → running app shows v1.1 (`docs/screenshots/m10_*`); walkthrough video `docs/demo/tutorslot-walkthrough.mp4` |
 
 ## Status right now
 
 - **Done & verified:** M1–M6 (pipeline green; CVEs found and fixed), plus **M8 and M9**,
   deployed and monitored on a local Kubernetes cluster (`kind`) with the same chart and config.
 - **Needs AWS:** M7 (Terraform apply on AWS). The code is complete and valid; see `DEPLOY.md`.
-- **M10:** README done; the live demo was performed and recorded (`docs/screenshots/m10_*`)
+- **M10:** README done; the live demo was performed and recorded (`docs/screenshots/m10_*`; video `docs/demo/tutorslot-walkthrough.mp4`)
   and can be repeated live on request.
 
 ## Module 6 — Trivy explanation (ready to paste)
